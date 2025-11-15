@@ -1,6 +1,6 @@
 # Noise Generator for Home Assistant
 
-Noise Generator is a custom integration that synthesizes continuous white, pink, brown, or fully custom noise directly inside Home Assistant. Each profile becomes a media source entry that you can browse from the HA UI or trigger through automations, giving you a reliable ambient-noise generator without relying on external services.
+Noise Generator is a custom integration that synthesizes continuous white, pink, brown, or fully custom noise directly inside Home Assistant. Each profile becomes a media source entry that you can browse from the UI or trigger through automations or scripts, giving you a reliable ambient-noise generator without relying on external services.
 
 > Built by **vibe coding** with ChatGPT-assisted development.
 
@@ -33,22 +33,20 @@ Noise Generator is a custom integration that synthesizes continuous white, pink,
 ## Usage
 
 ### Initial Setup
-1. Go to **Settings → Devices & Services → Add Integration**.
+1. Go to **Settings → Devices & Services → Configure (cogwheel icon)**.
 2. Select **Noise Generator**.
 3. Fill out the form: profile name, noise type, volume (0–1), optional seed, and custom parameters if needed.
 4. Submit to create the first profile and entry.
 
 ### Managing Profiles
-- Navigate to **Settings → Devices & Services → Noise Generator → Configure**.
+- Navigate to **Settings → Devices & Services → Noise Generator → Configure (cogwheel icon)**.
 - Choose **Add profile**, **Edit profile**, or **Remove profile** as needed.
-- **Volume** (0–1) and **Random seed** are available for *all* profiles, not just custom ones.
 - Saving via **Save changes** updates every profile in the entry.
 
 ### Playing Noise
 **Media Browser**
 1. Use the global **Media** panel or a media player’s “Browse media” button.
-2. Open **Noise Generator** and choose a profile.
-3. Select the target media player to start streaming immediately.
+2. Open **Noise Generator** and choose a profile to play.
 
 **Automations / Scripts**
 Use the media-source URI for a profile:
@@ -58,10 +56,9 @@ target:
   entity_id: media_player.living_room
 data:
   media:
-    media_content_id: media-source://noise_generator/<profile_slug>
-    media_content_type: audio/wav
+    media_content_id: media-source://noise_generator/<profile_name>
 ```
-Obtain the slug by browsing to the profile in the Media Browser or checking the integration’s logs.
+Obtain the name by browsing to the profile in the Media Browser or checking the integration’s logs.
 
 ### Custom Noise Parameters
 | Parameter | Range | Effect |
