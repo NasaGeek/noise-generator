@@ -1,0 +1,66 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Noise Generator",
+        "description": "Create the first noise profile.",
+        "data": {
+          "name": "Profile name",
+          "type": "Noise type",
+          "volume": "Volume (0-1)",
+          "seed": "Random seed"
+        }
+      },
+      "user_custom": {
+        "title": "Tune custom noise",
+        "description": "Set the spectral slope and frequency limits for your custom profile.",
+        "data": {
+          "custom_slope": "Custom slope (dB/oct)",
+          "custom_low_cutoff": "Custom low cutoff (Hz)",
+          "custom_high_cutoff": "Custom high cutoff (Hz)"
+        }
+      }
+    },
+    "error": {
+      "duplicate": "A profile with this name already exists.",
+      "single_instance_allowed": "Noise Generator is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "action": {
+        "title": "Manage noise profiles",
+        "data": {
+          "action": "Action"
+        }
+      },
+      "profile": {
+        "title": "Configure noise profile",
+        "data": {
+          "name": "Profile name",
+          "type": "Noise type",
+          "volume": "Volume (0-1)",
+          "seed": "Random seed"
+        }
+      },
+      "profile_custom": {
+        "title": "Tune custom noise",
+        "description": "Set the spectral slope and frequency limits for your custom profile.",
+        "data": {
+          "custom_slope": "Custom slope (dB/oct)",
+          "custom_low_cutoff": "Custom low cutoff (Hz)",
+          "custom_high_cutoff": "Custom high cutoff (Hz)"
+        }
+      },
+      "select_profile": {
+        "title": "Select profile",
+        "data": {
+          "name": "Profile"
+        }
+      }
+    },
+    "error": {
+      "duplicate": "A profile with this name already exists."
+    }
+  }
+}
