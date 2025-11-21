@@ -1,6 +1,6 @@
 # Noise Generator for Home Assistant
 
-Noise Generator is a custom integration that synthesizes continuous background audio entirely inside Home Assistant. It started as a colored-noise generator (white, pink, brown, custom) and now also includes tonal alarm-like presets and a fully programmable tonal engine. Every profile becomes a Media Source entry, so you can play it from the Media Browser or trigger it via automations.
+Noise Generator is a custom integration that synthesizes continuous audio entirely inside Home Assistant. It can generate colored noises (white, pink, brown, custom) and tonal noises with alarm-like presets and a fully programmable tonal engine. Every profile becomes a Media Source entry, so you can play it from the Media Browser or trigger it via automations.
 
 > Built by **vibe coding** with ChatGPT-assisted development.
 
@@ -12,7 +12,7 @@ Noise Generator is a custom integration that synthesizes continuous background a
 - Built-in **colored noises** (white/pink/brown) plus custom spectral shaping.
 - Built-in **tonal presets** (Gentle Beep, Classic Digital, Mellow Bell, Sunrise Chime, Soft Sweep, Retro Buzzer, Duet Beeps, Warm Drone, Sci-Fi Ping, Pop Chime) plus custom tonal synthesis.
 - Per-profile volume and optional seed for reproducible randomness.
-- One-click playback via the Media Browser, or trigger via `media_player.play_media`.
+- Playback via the Media Browser, or trigger via `media_player.play_media`.
 - Configurable fully through the UI (add/edit/remove profiles at any time).
 
 ---
@@ -20,10 +20,9 @@ Noise Generator is a custom integration that synthesizes continuous background a
 ## Installation
 
 ### HACS (recommended)
-1. Open **HACS → Integrations → ⋮ → Custom repositories**.
-2. Add `https://github.com/nirnachmani/noise-generator` and choose **Integration**.
-3. Install “Noise Generator” from the HACS list and restart Home Assistant.
-4. Go to **Settings → Devices & Services → Add Integration** and pick **Noise Generator**.
+1. **Add repository**: In Home Assistant, go to **HACS → Integrations → ⋮ → Custom repositories**, enter the GitHub URL for this repo, and choose **Integration**.
+2. **Install**: After the repo is added, find “Noise Generator” in HACS → Integrations and click **Download**.
+3. **Restart HA** when prompted, then add the integration via **Settings → Devices & Services → Add Integration**.
 
 ### Manual
 1. Download or clone this repository.
@@ -35,10 +34,10 @@ Noise Generator is a custom integration that synthesizes continuous background a
 ## Usage
 
 ### Initial setup
-1. Add the integration (see above).
-2. Give your profile a name and choose a variation:
+1. Go to **Settings → Devices & Services →  Noise Generator → Configure (cogwheel icon)**.
+2. Give your profile a name and choose a variation from the drop-down list:
    - **Colored noises** – white, pink, brown, or custom (opens a second form).
-   - **Tonal noises** – gentle beep, mellow bell, soft sweep, warm drone, or custom tonal (opens a tonal form).
+   - **Tonal noises** – various pre-sets or custom tonal (opens a tonal form).
 3. Set the volume (0–1) and optional random seed.
 4. Save. The profile appears immediately under Media → Noise Generator.
 
@@ -59,8 +58,7 @@ target:
   entity_id: media_player.bedroom_speaker
 data:
   media:
-    media_content_id: media-source://noise_generator/<profile_slug>
-    media_content_type: audio/wav
+    media_content_id: media-source://noise_generator/<profile_name>
 ```
 You can copy the `media_content_id` by browsing to the profile in the UI and clicking the “Show code” snippet.
 
